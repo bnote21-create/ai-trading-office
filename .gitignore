@@ -1,3 +1,7 @@
+# Agent & Claude local configs
+.agents/
+.claude/
+
 # Environment & API Keys (สำคัญมาก: ห้ามอัปโหลดไฟล์ที่มี Token ส่วนตัวขึ้น GitHub)
 .env
 *.env
