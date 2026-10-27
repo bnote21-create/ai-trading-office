@@ -149,7 +149,7 @@ def generate_ai_chat_reply(user_message: str, chat_history: Optional[List[Dict[s
                 )
 
     # 2. ลองส่งคำถามให้ Gemini LLM หากมี Key ที่ถูกต้อง
-    if config.GEMINI_API_KEY and len(config.GEMINI_API_KEY.strip()) > 30 and config.GEMINI_API_KEY.strip().startswith("AIzaSy"):
+    if config.GEMINI_API_KEY and len(config.GEMINI_API_KEY.strip()) > 20:
         try:
             from google import genai
             client = genai.Client(api_key=config.GEMINI_API_KEY.strip())

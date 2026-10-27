@@ -592,7 +592,7 @@ elif "แชทปรึกษา AI" in menu:
     st.write("ที่ปรึกษาส่วนตัวสไตล์ Swing Trade ช่วยวิเคราะห์จังหวะเข้าซื้อ, ตรวจสุขภาพพอร์ต, วางแผน Stop Loss และแนะนำขั้นตอนการส่งคำสั่งบน Webull & Streaming")
 
     # กล่องตั้งค่า Google Gemini API เพื่อเปิดพลัง LLM สนทนาอิสระเต็มพิกัด
-    is_gemini_active = bool(config.GEMINI_API_KEY and config.GEMINI_API_KEY.strip().startswith("AIzaSy"))
+    is_gemini_active = bool(config.GEMINI_API_KEY and len(config.GEMINI_API_KEY.strip()) > 20)
     with st.expander("⚙️ ตั้งค่า Google Gemini API Key (ฟรี เพื่อปลดล็อก AI สนทนาอิสระแบบไม่มีขีดจำกัด)", expanded=False):
         if is_gemini_active:
             st.success("🟢 เชื่อมต่อ Google Gemini API สำเร็จ: กำลังใช้สมองกล Gemini 2.5 Flash ตอบคำถาม")
@@ -601,7 +601,7 @@ elif "แชทปรึกษา AI" in menu:
         
         g_c1, g_c2 = st.columns([4, 1])
         with g_c1:
-            in_key = st.text_input("กรอก Gemini API Key (ขึ้นต้นด้วย AIzaSy...):", value=config.GEMINI_API_KEY if is_gemini_active else "", type="password", placeholder="AIzaSy...")
+            in_key = st.text_input("กรอก Gemini API Key:", value=config.GEMINI_API_KEY if is_gemini_active else "", type="password", placeholder="วางรหัส API Key ที่นี่...")
         with g_c2:
             st.write("")
             st.write("")
